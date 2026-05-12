@@ -21,24 +21,25 @@ const socialIconMap: Record<string, React.ElementType> = {
 
 export default function Footer() {
   return (
-    <footer className="m-3 max-w-full rounded-2xl h-[90vh] bg-black text-white overflow-hidden">
+    <footer className="m-3 max-w-full rounded-2xl bg-black text-white overflow-hidden">
       {/* Top section */}
-      <div className="mx-auto max-w-screen-2xl px-8 pt-16 pb-4 md:px-12 lg:px-16">
-        <div className="flex flex-col gap-12 lg:flex-row lg:gap-0">
-          {/* Newsletter + Socials — left block */}
-          <div className="flex flex-col gap-10 lg:w-[38%] lg:pr-16">
-            <div className="flex flex-col gap-6">
+      <div className="mx-auto max-w-screen-2xl px-6 pt-12 pb-4 md:px-12 lg:px-16">
+        <div className="flex flex-col gap-10 lg:flex-row lg:gap-0">
+
+          {/* Newsletter + Socials — full width on mobile, left block on desktop */}
+          <div className="flex flex-col gap-8 lg:w-[38%] lg:pr-16">
+            <div className="flex flex-col gap-5">
               <p className="text-2xl font-bold leading-snug md:text-3xl">
                 Stay updated with Rise news
               </p>
               {/* Email input */}
-              <div className="flex items-center justify-between rounded-full bg-[#1f1f1f] px-6 py-4">
+              <div className="flex items-center justify-between rounded-full bg-[#1f1f1f] px-5 py-3.5">
                 <input
                   type="email"
                   placeholder="Your Email Address"
-                  className="flex-1 bg-transparent text-base text-neutral-400 placeholder-neutral-500 outline-none placeholder:text-2lg md:placeholder:text-2xl placeholder:font-bold"
+                  className="flex-1 bg-transparent text-sm text-neutral-400 placeholder-neutral-500 outline-none md:text-base placeholder:font-semibold"
                 />
-                <button className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#5eead4] text-black transition-transform duration-200 hover:scale-110">
+                <button className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#5eead4] text-black transition-transform duration-200 hover:scale-110">
                   <ArrowUpRight className="h-5 w-5" />
                 </button>
               </div>
@@ -63,56 +64,62 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Nav columns — right block with vertical dividers */}
-          <div className="flex flex-col gap-10 lg:flex-row lg:flex-1">
-            {/* Col 1 */}
-            <div className="flex flex-col gap-5 lg:flex-1 lg:border-l lg:border-neutral-800 lg:pl-12">
-              {footerLinks.col1.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-xl font-bold text-white transition-opacity duration-200 hover:opacity-50 md:text-2xl"
-                >
-                  {link.label}
-                </a>
-              ))}
+          {/* Nav columns — right block */}
+          <div className="flex flex-col gap-8 lg:flex-row lg:flex-1">
+
+            {/* Mobile: col1 + col2 side by side | Desktop: separate columns with dividers */}
+            <div className="flex flex-row gap-0 lg:contents">
+
+              {/* Col 1 */}
+              <div className="flex flex-col gap-4 flex-1 border-l border-neutral-800 pl-5 lg:flex-1 lg:border-l lg:border-neutral-800 lg:pl-12">
+                {footerLinks.col1.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-lg font-bold text-white transition-opacity duration-200 hover:opacity-50 md:text-2xl"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+
+              {/* Col 2 */}
+              <div className="flex flex-col gap-4 flex-1 border-l border-neutral-800 pl-5 lg:flex-1 lg:border-l lg:border-neutral-800 lg:pl-12">
+                {footerLinks.col2.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-lg font-bold text-white transition-opacity duration-200 hover:opacity-50 md:text-2xl"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
 
-            {/* Col 2 */}
-            <div className="flex flex-col gap-5 lg:flex-1 lg:border-l lg:border-neutral-800 lg:pl-12">
-              {footerLinks.col2.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-xl font-bold text-white transition-opacity duration-200 hover:opacity-50 md:text-2xl"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            {/* Col 3 */}
-            <div className="flex flex-col gap-5 lg:flex-1 lg:border-l lg:border-neutral-800 lg:pl-12">
+            {/* Col 3 — full width row on mobile, column on desktop */}
+            <div className="flex flex-col gap-4 border-l border-neutral-800 pl-5 lg:flex-1 lg:border-l lg:border-neutral-800 lg:pl-12">
               {footerLinks.col3.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-xl font-bold text-white transition-opacity duration-200 hover:opacity-50 md:text-2xl"
+                  className="text-lg font-bold text-white transition-opacity duration-200 hover:opacity-50 md:text-2xl"
                 >
                   {link.label}
                 </a>
               ))}
             </div>
+
           </div>
         </div>
       </div>
 
       {/* Big brand name */}
-      <div className="mt-8 px-0 max-w-full flex items-center justify-center">
+      <div className="mt-6 px-0 max-w-full flex items-center justify-center overflow-hidden">
         <p
           className="select-none whitespace-nowrap font-semibold leading-none text-white"
           style={{
-            fontSize: "clamp(7rem, 16vw, 16rem)",
+            fontSize: "clamp(3.5rem, 16vw, 16rem)",
             letterSpacing: "-0.01em",
           }}
         >
@@ -122,31 +129,32 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="mx-auto max-w-screen-2xl px-8 py-6 md:px-12 lg:px-16">
-        <div className="flex flex-col gap-3 text-xs text-white md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pb-16">
+      <div className="mx-auto max-w-screen-2xl px-6 pt-4 pb-8 md:px-12 lg:px-16">
+        <div className="flex flex-col gap-2 text-xs text-neutral-400 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <span>© 2025 Rise at Seven Ltd. All rights reserved</span>
-            <span className="hidden md:inline text-neutral-700">•</span>
+            <span className="text-neutral-700">•</span>
             <span>Company Number 11955187</span>
-            <span className="hidden md:inline text-neutral-700">•</span>
+            <span className="text-neutral-700">•</span>
             <span>VAT Registered GB 322402945</span>
-            <span className="hidden md:inline text-neutral-700">•</span>
+            <span className="text-neutral-700">•</span>
             <a
               href="#"
               className="hover:text-white transition-colors duration-200"
             >
               Privacy Policy
             </a>
-            <span className="hidden md:inline text-neutral-700">•</span>
+            <span className="text-neutral-700">•</span>
             <a
               href="#"
               className="hover:text-white transition-colors duration-200"
             >
-              Terms & conditions
+              Terms &amp; conditions
             </a>
+            <span className="text-neutral-700">•</span>
           </div>
-          <span className="hover:text-white transition-colors duration-200 cursor-pointer pb-16">
-            Website MadeByNayem
+          <span className="hover:text-white transition-colors duration-200 cursor-pointer">
+            Website MadeByShape
           </span>
         </div>
       </div>
