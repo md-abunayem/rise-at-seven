@@ -16,7 +16,7 @@ const NewsSection = () => {
           <p>New</p>
         </div>
 
-        <button className="group flex items-center gap-2 rounded-2xl border border-neutral-300 bg-white px-4 py-2 text-sm font-semibold shadow-sm transition-colors duration-200 hover:bg-neutral-100 md:text-base">
+        <button className="group md:flex items-center gap-2 hidden rounded-2xl border border-neutral-300 bg-white px-4 py-2 text-sm font-semibold shadow-sm transition-colors duration-200 hover:bg-neutral-100 md:text-base">
           <span className="relative h-6 overflow-hidden">
             <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-full">
               Explore More Thoughts
@@ -31,16 +31,17 @@ const NewsSection = () => {
 
       <hr className="border-t border-neutral-400" />
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-10">
+      <div className="mt-10 flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-8">
         {newsItems.map((item, index) => (
-          <NewsCard
-            key={index}
-            profile={item.profile}
-            url={item.url}
-            author={item.author}
-            time={item.time}
-            title={item.title}
-          />
+          <div key={index} className="min-w-full snap-start md:min-w-0">
+            <NewsCard
+              profile={item.profile}
+              url={item.url}
+              author={item.author}
+              time={item.time}
+              title={item.title}
+            />
+          </div>
         ))}
       </div>
     </div>

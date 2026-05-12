@@ -31,7 +31,7 @@ const items: MarqueeItem[] = [
 // ── Track (one copy) ──────────────────────────────────────────────────────────
 function MarqueeTrack() {
   return (
-    <div className="flex items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 pr-4 sm:pr-6 md:pr-8 lg:pr-10">
+    <div className="flex items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 pr-4 sm:pr-6 md:pr-8 lg:pr-10 my-12">
       {items.map((item, i) =>
         item.type === "text" ? (
           <span

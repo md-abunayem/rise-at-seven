@@ -5,7 +5,13 @@ import {
 } from "../../data/data";
 import Navbar from "../layout/NavBar";
 
-export default function Hero({OpenMenu, setOpenMenu}:{OpenMenu:boolean, setOpenMenu: React.Dispatch<React.SetStateAction<boolean>> }) {
+export default function Hero({
+  OpenMenu,
+  setOpenMenu,
+}: {
+  OpenMenu: boolean;
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const [activeItem, setActiveItem] = useState<string | null>(null);
 
   return (
@@ -24,14 +30,17 @@ export default function Hero({OpenMenu, setOpenMenu}:{OpenMenu:boolean, setOpenM
         <div className="absolute inset-0 bg-black/50"></div>
 
         {/* //Navbar */}
-        <Navbar activeItem={activeItem} setActiveItem={setActiveItem} openMenu={OpenMenu} setOpenMenu={setOpenMenu}/>
+        <Navbar
+          activeItem={activeItem}
+          setActiveItem={setActiveItem}
+          openMenu={OpenMenu}
+          setOpenMenu={setOpenMenu}
+        />
 
         {/* Content */}
         <div
           className={`
-    relative z-10 flex flex-col items-center justify-center text-center
-    pt-10 sm:pt-16 md:pt-20
-    transition-all duration-300
+    relative z-10 flex flex-col items-center justify-center text-center transition-all duration-300
     ${activeItem ? "blur-sm scale-[0.99] opacity-80" : "blur-0 opacity-100"}
   `}
         >

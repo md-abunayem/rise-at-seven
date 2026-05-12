@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-
 import { services } from "../../data/data";
 
 const leftServices = services.slice(0, 3);
@@ -39,11 +38,7 @@ function ServiceRow({ title, image, isLast = false }: ServiceRowProps) {
             ${hovered ? "opacity-100" : "opacity-0"}
           `}
         >
-          <img
-            src={image}
-            alt={title}
-            className="h-full w-full object-cover"
-          />
+          <img src={image} alt={title} className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
@@ -52,9 +47,10 @@ function ServiceRow({ title, image, isLast = false }: ServiceRowProps) {
           <ArrowUpRight
             className={`
               shrink-0 transition-all duration-300 ease-out
-              ${hovered
-                ? "opacity-100 text-white w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 mr-2 md:mr-3 translate-x-0"
-                : "opacity-0 w-0 h-5 sm:h-6 md:h-8 mr-0 -translate-x-4"
+              ${
+                hovered
+                  ? "opacity-100 text-white w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 mr-2 md:mr-3 translate-x-0"
+                  : "opacity-0 w-0 h-5 sm:h-6 md:h-8 mr-0 -translate-x-4"
               }
             `}
           />
@@ -62,7 +58,7 @@ function ServiceRow({ title, image, isLast = false }: ServiceRowProps) {
             className={`
               flex-1 font-semibold tracking-tighter
               transition-colors duration-300 ease-out
-              text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+              text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
               leading-tight
               ${hovered ? "text-white" : "text-black"}
             `}
@@ -91,12 +87,11 @@ function ServiceRow({ title, image, isLast = false }: ServiceRowProps) {
 export default function CoreServices() {
   return (
     <div className="flex w-full max-w-full flex-col gap-6 md:gap-8 overflow-x-hidden px-4 sm:px-6 md:px-10 lg:px-12 py-8 md:py-10 my-8 md:my-16">
-
       {/* ── Heading row ── */}
       <div className="flex items-center justify-between gap-2 flex-wrap">
         {/* Title group */}
         <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-          <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-none">
+          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-none">
             Our
           </span>
           <img
@@ -110,13 +105,14 @@ export default function CoreServices() {
               rounded-xl sm:rounded-2xl object-cover shrink-0
             "
           />
-          <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-none">
+          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-none">
             Services
           </span>
         </div>
 
         {/* CTA button */}
-        <button className="
+        <button
+          className="
           group flex items-center gap-1.5 sm:gap-2
           rounded-xl sm:rounded-2xl
           border border-neutral-300 bg-white
@@ -125,7 +121,8 @@ export default function CoreServices() {
           font-semibold shadow-sm
           transition-colors duration-200 hover:bg-neutral-100
           shrink-0
-        ">
+        "
+        >
           <span className="relative h-5 sm:h-6 overflow-hidden">
             <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-full whitespace-nowrap">
               View All Services
@@ -141,13 +138,7 @@ export default function CoreServices() {
       {/* Top divider */}
       <hr className="border-t border-neutral-400" />
 
-      {/* ── Services grid ── */}
-      {/*
-        Mobile  (<lg): single column — all 6 services stacked vertically
-        Desktop (≥lg): two columns side by side
-      */}
       <div className="flex flex-col gap-0 lg:flex-row lg:gap-12 xl:gap-16">
-
         {/* Left column */}
         <div className="flex-1 overflow-visible">
           {leftServices.map((s, i) => (

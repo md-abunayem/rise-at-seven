@@ -31,7 +31,7 @@ export default function Navbar({
             className="relative hidden lg:flex lg:flex-col lg:items-center"
             onMouseLeave={() => setActiveItem(null)}
           >
-            <nav className="flex flex-nowrap items-center gap-2">
+            <nav className="flex flex-nowrap items-center gap-1">
               {navItems.map((item) => (
                 <button
                   key={item.label}

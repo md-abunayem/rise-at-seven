@@ -23,7 +23,7 @@ const NewsCard = ({ profile, url, author, time, title }: NewsCardProps) => {
   };
 
   return (
-    <div>
+    <div className="">
       <div
         className="relative overflow-hidden rounded-2xl cursor-none"
         onMouseEnter={() => setIsHovering(true)}
@@ -33,7 +33,7 @@ const NewsCard = ({ profile, url, author, time, title }: NewsCardProps) => {
         <img
           src={url}
           alt={title}
-          className={`h-[70vh] w-full object-cover transition-all duration-500 ease-out ${
+          className={`h-[45vh] sm:h-[50vh] lg:h-[70vh] w-full object-cover transition-all duration-500 ease-out ${
             isHovering ? "blur-xl" : "blur-0"
           }`}
         />
