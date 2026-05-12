@@ -3,14 +3,28 @@ import { navItems, NavCardInfos } from "../../data/data";
 import ServiceNavDetails from "../sections/ServiceNavDetails";
 import NavItemCard from "../sections/NavItemCard";
 
-export default function Navbar({activeItem, setActiveItem, openMenu, setOpenMenu}:{activeItem:string | null, setActiveItem: React.Dispatch<React.SetStateAction<string | null>>, openMenu: boolean, setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>}) {
-
+export default function Navbar({
+  activeItem,
+  setActiveItem,
+  openMenu,
+  setOpenMenu,
+}: {
+  activeItem: string | null;
+  setActiveItem: React.Dispatch<React.SetStateAction<string | null>>;
+  openMenu: boolean;
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   return (
     <header className="sticky top-0 z-50 w-full">
-      <div className="mx-auto max-w-screen-2xl px-8 py-6">
-        <div className="flex items-center justify-between">
+
+      <div className="mx-auto max-w-screen-2xl px-4 lg:px-6 xl:px-8 py-4 lg:py-5 xl:py-6">
+        <div className="flex items-center justify-between gap-2">
+
           {/* Logo */}
-          <a href="#" className="text-3xl font-bold tracking-tight text-white">
+          <a
+            href="#"
+            className="shrink-0 text-xl lg:text-2xl xl:text-3xl font-bold tracking-tight text-white"
+          >
             Rise at Seven
           </a>
 
@@ -19,14 +33,15 @@ export default function Navbar({activeItem, setActiveItem, openMenu, setOpenMenu
             className="relative hidden lg:flex lg:flex-col lg:items-center"
             onMouseLeave={() => setActiveItem(null)}
           >
-            <nav className="flex items-center gap-2">
+            <nav className="flex items-center gap-0 xl:gap-1">
               {navItems.map((item) => (
                 <button
                   key={item.label}
-                  onMouseEnter={() => {setActiveItem(item.label)}}
+                  onMouseEnter={() => setActiveItem(item.label)}
                   className="
-                    rounded-2xl px-4 py-2
-                    text-lg font-semibold text-white
+                    whitespace-nowrap
+                    rounded-2xl px-2 lg:px-3 xl:px-4 py-1
+                    text-sm lg:text-base xl:text-lg font-semibold text-white
                     transition-all duration-300
                     hover:bg-white hover:text-black
                   "
@@ -36,46 +51,50 @@ export default function Navbar({activeItem, setActiveItem, openMenu, setOpenMenu
               ))}
             </nav>
 
-            {/* Hover Cards */}
             <div
               className={`
-                absolute top-16 transition-all duration-500
+                absolute top-full mt-2 left-1/2 -translate-x-1/2
+                transition-all duration-300 z-50
                 ${
                   activeItem
-                    ? "translate-y-0 opacity-100"
-                    : "pointer-events-none -translate-y-4 opacity-0"
+                    ? "translate-y-0 opacity-100 pointer-events-auto"
+                    : "pointer-events-none -translate-y-2 opacity-0"
                 }
               `}
             >
               {activeItem === "Services +" && <ServiceNavDetails />}
-              {
-                NavCardInfos.map((cardInfo) => cardInfo.label === activeItem && (
-                  <div key={cardInfo.label} className="mt-4">
-                    <NavItemCard
-                      url={cardInfo.url}
-                      label1={cardInfo.label1}
-                      label2={cardInfo.label2}
-                      label3={cardInfo.label3}
-                      label4={cardInfo.label4}
-                    />
-                  </div>
-                ))
-              }
+              {NavCardInfos.map(
+                (cardInfo) =>
+                  cardInfo.label === activeItem && (
+                    <div key={cardInfo.label}>
+                      <NavItemCard
+                        url={cardInfo.url}
+                        label1={cardInfo.label1}
+                        label2={cardInfo.label2}
+                        label3={cardInfo.label3}
+                        label4={cardInfo.label4}
+                      />
+                    </div>
+                  )
+              )}
             </div>
           </div>
 
           <a
             href="#contact"
             className="
-              hidden rounded-full bg-white px-5 py-3
-              text-lg font-bold text-black
+              shrink-0
+              hidden rounded-full bg-white
+              px-3 lg:px-4 xl:px-5 py-2 lg:py-3
+              text-sm lg:text-base xl:text-lg font-bold text-black
               transition-all duration-300
               hover:scale-105
               lg:inline-flex lg:items-center
+              whitespace-nowrap
             "
           >
             Get in touch
-            <ArrowUpRight className="ml-1 h-5 w-5" />
+            <ArrowUpRight className="ml-1 h-4 w-4 xl:h-5 xl:w-5" />
           </a>
 
           {/* Mobile Menu Button */}
@@ -97,7 +116,7 @@ export default function Navbar({activeItem, setActiveItem, openMenu, setOpenMenu
 
         {/* Mobile Menu */}
         {openMenu && (
-          <div className="mt-4 border-t  border-neutral-5000 bg-neutra-200 text-white px-4 text-2xl py-4 lg:hidden h-screen w-screen">
+          <div className="mt-4 border-t border-neutral-500 text-white px-4 text-2xl py-4 lg:hidden h-screen w-full">
             <div className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <a
@@ -107,7 +126,7 @@ export default function Navbar({activeItem, setActiveItem, openMenu, setOpenMenu
                   onClick={() => setOpenMenu(false)}
                 >
                   {item.label}
-                  <hr className="text-neutral-300 mr-16"/>
+                  <hr className="text-neutral-300 mr-16" />
                 </a>
               ))}
             </div>

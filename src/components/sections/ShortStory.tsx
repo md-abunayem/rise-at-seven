@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 const ShortStory = () => {
   return (
     <div className="flex w-full px-6 py-10 gap-6 my-16 flex-col md:flex-row">
-      {/* Mobile: heading + image first, Desktop: right part */}
       <div className="flex flex-col items-start gap-2 w-full md:hidden">
         <p className="text-5xl font-semibold leading-tight">Driving Demand</p>
         <div className="flex items-center gap-2">
@@ -16,7 +15,6 @@ const ShortStory = () => {
         </div>
       </div>
 
-      {/* Mobile: description */}
       <div className="flex flex-col font-bold w-full text-xl md:hidden">
         <p>A global team of search-first content marketers</p>
         <p>engineering semantic relevancy & category</p>
@@ -52,13 +50,12 @@ const ShortStory = () => {
 
       {/* Desktop layout (hidden on mobile) */}
       {/* Left: description */}
-      <div className="hidden md:flex flex-col font-bold w-[55%] text-2xl pl-4 justify-center">
+      <div className="hidden md:flex flex-col font-bold w-[55%] text-2xl pl-4 justify-start">
         <p>A global team of search-first content marketers</p>
         <p>engineering semantic relevancy & category</p>
         <p>signals for both the internet and people</p>
       </div>
 
-      {/* Right: heading + buttons */}
       <div className="hidden md:flex w-[45%] flex-col items-start justify-center gap-4">
         <div className="flex flex-col items-start gap-2 justify-center">
           <p className="text-7xl font-semibold">Driving Demands &</p>
