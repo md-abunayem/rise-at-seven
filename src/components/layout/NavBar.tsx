@@ -84,15 +84,16 @@ export default function Navbar({
           <a
             href="#contact"
             className="
-              hidden rounded-full bg-white px-5 py-3
-              text-lg font-bold text-black
+              hidden rounded-full bg-white px-4 py-2
+              text-base font-bold text-black
               transition-all duration-300
               hover:scale-105
               lg:inline-flex lg:items-center
+              whitespace-nowrap shrink-0
             "
           >
             Get in touch
-            <ArrowUpRight className="ml-1 h-5 w-5" />
+            <ArrowUpRight className="ml-1 h-4 w-4" />
           </a>
 
           {/* Mobile Menu Button */}
