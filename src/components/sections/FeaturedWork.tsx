@@ -82,9 +82,11 @@ const FeaturedWork = () => {
             </div>
           </div>
         </div>
-        <div className="w-screen flex justify-center">
-          <button className="bg-neutral-300 flex  items-center justify-center gap-2 border-neutral-500 shadow-blue-300 px-8 py-2 mt-8 text-lg font-semibold rounded-full ">Explore Our Work<ArrowUpRight></ArrowUpRight></button>
-          
+        <div className="w-full max-w-full flex justify-center">
+          <button className="bg-neutral-300 flex items-center justify-center gap-2 border-neutral-500 shadow-blue-300 px-8 py-2 mt-8 text-lg font-semibold rounded-full">
+            Explore Our Work
+            <ArrowUpRight />
+          </button>
         </div>
       </div>
     </section>

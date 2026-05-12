@@ -12,7 +12,7 @@ export default function Hero({OpenMenu, setOpenMenu}:{OpenMenu:boolean, setOpenM
     <div className="px-1 sm:px-2 md:px-3 bg-gray-100">
       <section
         className="relative overflow-hidden rounded-3xl shadow-2xl 
-        h-[97vh] w-full text-white 
+        h-screen w-full text-white 
         flex flex-col justify-between items-center"
         style={{
           backgroundImage: `url(${backgroundImage.url})`,

@@ -111,7 +111,7 @@ export default function Navbar({
 
         {/* Mobile Menu */}
         {openMenu && (
-          <div className="mt-4 h-screen w-screen border-t border-neutral-500 bg-neutral-200 px-4 py-4 text-2xl text-white lg:hidden">
+          <div className="mt-4 h-screen w-full max-w-full border-t border-neutral-500 bg-neutral-200 px-4 py-4 text-2xl text-white lg:hidden">
             <div className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <a
