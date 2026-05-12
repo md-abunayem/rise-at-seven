@@ -22,7 +22,10 @@ export default function Navbar({
       <div className="mx-auto max-w-screen-2xl px-8 py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="text-3xl font-bold tracking-tight text-white">
+          <a
+            href="#"
+            className="text-3xl font-bold tracking-tight text-white whitespace-nowrap shrink-0"
+          >
             Rise at Seven
           </a>
 
@@ -111,17 +114,17 @@ export default function Navbar({
 
         {/* Mobile Menu */}
         {openMenu && (
-          <div className="mt-4 h-screen w-full max-w-full border-t border-neutral-500 bg-neutral-200 px-4 py-4 text-2xl text-white lg:hidden">
+          <div className="mt-4 h-screen w-full max-w-full border-t border-neutral-600  px-4 py-4 text-2xl text-white lg:hidden">
             <div className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-white"
+                  className="text-white block py-3"
                   onClick={() => setOpenMenu(false)}
                 >
                   {item.label}
-                  <hr className="mr-16 text-neutral-300" />
+                  <hr className="mt-2 border-neutral-700" />
                 </a>
               ))}
             </div>
